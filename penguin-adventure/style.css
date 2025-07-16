@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the top */
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff; /* Light Alice Blue */
+    font-family: 'Helvetica Neue', sans-serif;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+#score-display {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    background-color: #e0e0e0; /* Light grey background for score */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+#currentScore, #highScore {
+    padding: 5px 10px;
+}
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+canvas {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #87CEEB; /* Sky Blue */
+    max-width: 100%; /* Ensure canvas scales down on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+    flex-grow: 1; /* Allow canvas to take available space */
+}
+
+/* Media query for mobile devices (no hover, coarse pointer) */
+@media (hover: none) and (pointer: coarse) {
+    body {
+        flex-direction: column; /* Default to column for portrait */
+    }
+}
+
+/* Media query for landscape orientation on mobile devices */
+@media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+    body {
+        flex-direction: row; /* Arrange side-by-side in landscape */
+        justify-content: space-around;
+        align-items: center;
+    }
+    #score-display {
+        position: absolute; /* Position score display absolutely */
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(224, 224, 224, 0.8); /* Slightly transparent */
+    }
+    canvas {
+        max-width: 70%; /* Adjust canvas width in landscape */
+        max-height: 90vh; /* Limit canvas height to viewport height */
+    }
+    h1 {
+        display: none; /* Hide title in landscape to save space */
+    }
+}
