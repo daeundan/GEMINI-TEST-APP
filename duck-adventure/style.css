@@ -71,3 +71,17 @@ canvas {
         display: none; /* Hide title in landscape to save space */
     }
 }
+
+/* Media query for mobile devices (max-width 768px) */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 50px; /* Add padding to the bottom */
+    }
+    canvas {
+        max-height: 70vh; /* Limit canvas height to 70% of viewport height */
+    }
+}
+    canvas {
+        max-height: 70vh; /* Limit canvas height to 70% of viewport height */
+    }
+}

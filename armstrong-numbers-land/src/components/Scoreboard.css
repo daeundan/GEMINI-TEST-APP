@@ -1,0 +1,15 @@
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #61dafb;
+  margin-bottom: 20px;
+}
+
+.score, .level {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #a0e0ff;
+}

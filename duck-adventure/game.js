@@ -1,8 +1,10 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = 400;
-canvas.height = 600;
+// Adjust canvas for high-DPI screens
+const dpr = 1; // Optimized for mobile performance by fixing DPR to 1
+canvas.width = 500 * dpr;
+canvas.height = 600 * dpr;
 
 // Game constants
 const gravity = 0.5;
@@ -269,9 +271,13 @@ function update() {
     if (clouds[i].x + clouds[i].width < 0) clouds.splice(i, 1);
   }
 
-  // Update score display
-  document.getElementById("currentScore").innerText = `점수: ${score}`;
-  document.getElementById("highScore").innerText = `최고 점수: ${highScore}`;
+  // Update score display only when score changes
+  if (score !== parseInt(document.getElementById("currentScore").innerText.split(": ")[1])) {
+    document.getElementById("currentScore").innerText = `점수: ${score}`;
+  }
+  if (highScore !== parseInt(document.getElementById("highScore").innerText.split(": ")[1])) {
+    document.getElementById("highScore").innerText = `최고 점수: ${highScore}`;
+  }
 }
 
 // --- DRAWING ---

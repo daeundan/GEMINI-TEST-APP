@@ -1,0 +1,55 @@
+.character-feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.duck-image {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: auto;
+  transition: transform 0.3s ease-out;
+}
+
+.duck-image.correct {
+  animation: bounce-duck 0.5s ease-out;
+}
+
+.duck-image.incorrect {
+  animation: shake-duck 0.5s ease-out;
+}
+
+@keyframes bounce-duck {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake-duck {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-10px);
+  }
+  40%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.feedback-message {
+  font-size: 1.1em;
+  color: #e0e0e0;
+  min-height: 30px; /* 메시지가 없을 때 공간 확보 */
+}
